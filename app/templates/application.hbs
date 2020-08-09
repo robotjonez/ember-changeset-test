@@ -1,22 +1,21 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{!-- <WelcomePage /> --}}
-{{!-- Feel free to remove this! --}}
-
-
 {{#if @model.isDirty}}
-<h1>Project model is dirty</h1>
+<h1>Project model is dirty </h1>
+
+<h2>Selected Team: {{@model.activeTeam.name}}</h2>
+
     <b>Changed Keys:</b>
     {{#each @model.changes as |change|}}
         <div style='display:block'>
             {{change.key}}
         </div>
     {{/each}}
+  {{else}}
+  <h1>Currently Selected team: {{@model.activeTeam.content.name}}</h1>
 {{/if}}
 
 <PowerSelect
-    @options= {{@model.teams}}
-    @onChange={{fn (mut this.selectedTeam)}}
-as |option|
->
-    {{option.name}}
+    @options={{@model.teams}}
+    @selected={{@model.activeTeam}}
+    @onChange={{fn (mut @model.activeTeam)}} as |team|>
+  {{team.name}}
 </PowerSelect>

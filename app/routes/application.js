@@ -7,6 +7,10 @@ export default class ApplicationRoute extends Route {
 
     model(){
         let pushData = {
+          activeTeam: [{
+            id: 1,
+            name: 'bar'
+          }],
             teams: [
                 {
                     id: 1,
@@ -15,6 +19,10 @@ export default class ApplicationRoute extends Route {
                 {
                     id: 2,
                     name: 'baz'
+                },
+                {
+                    id: 3,
+                    name: 'buz'
                 }
             ],
             people: [
@@ -28,7 +36,8 @@ export default class ApplicationRoute extends Route {
                     id: 1,
                     author: 1,
                     projectName: 'foo',
-                    teams: [1,2]
+                    teams: [1,2,3],
+                    activeTeam: [1]
                 }
             ]
         }
