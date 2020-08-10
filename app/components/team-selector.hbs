@@ -1,0 +1,15 @@
+<PowerSelect
+  @options={{@model.teams}}
+  @selected={{@model.activeTeam}}
+  @onChange={{fn (mut @model.activeTeam)}} as |team|>
+  {{team.name}}
+</PowerSelect>
+
+<button
+  type="button"
+  disabled={{eq @model.isDirty false}}
+  class={{this.class}}
+  {{on "click" (fn this.clickRollBack @model)}}
+>
+  Clear Changes
+</button>

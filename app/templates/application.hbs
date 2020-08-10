@@ -13,9 +13,4 @@
   <h1>Currently Selected team: {{@model.activeTeam.content.name}}</h1>
 {{/if}}
 
-<PowerSelect
-    @options={{@model.teams}}
-    @selected={{@model.activeTeam}}
-    @onChange={{fn (mut @model.activeTeam)}} as |team|>
-  {{team.name}}
-</PowerSelect>
+<TeamSelector @model={{@model}}/>
